@@ -1,0 +1,26 @@
+databaseChangeLog:
+  - changeSet:
+      id: 4
+      author: IlyaUshakou
+      changes:
+        - createTable:
+            tableName: classes
+            columns:
+              - column:
+                  name: id
+                  type: int
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: class_name
+                  type: varchar(50)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: level
+                  type: int
+      rollback:
+        - dropTable:
+            tableName: classes

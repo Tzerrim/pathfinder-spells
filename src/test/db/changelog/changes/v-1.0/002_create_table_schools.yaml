@@ -1,0 +1,26 @@
+databaseChangeLog:
+  - changeSet:
+      id: 2
+      author: IlyaUshakou
+      changes:
+        - createTable:
+            tableName: schools
+            columns:
+              - column:
+                  name: id
+                  type: int
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: school_name
+                  type: varchar(50)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: keywords
+                  type: text
+      rollback:
+        - dropTable:
+            tableName: schools

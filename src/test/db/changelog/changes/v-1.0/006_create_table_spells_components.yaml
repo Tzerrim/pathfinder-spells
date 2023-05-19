@@ -1,0 +1,22 @@
+databaseChangeLog:
+  - changeSet:
+      id: 6
+      author: IlyaUshakou
+      comment: table spells and table components have MANY-TO-MANY relation
+      changes:
+        - createTable:
+            tableName: spells_components
+            columns:
+              - column:
+                  name: spell_id
+                  type: int
+                  constraints:
+                    nullable: false
+              - column:
+                  name: component_id
+                  type: int
+                  constraints:
+                    nullable: false
+      rollback:
+        - dropTable:
+            tableName: spells_components

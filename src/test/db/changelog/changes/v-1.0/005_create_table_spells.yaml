@@ -1,0 +1,63 @@
+databaseChangeLog:
+  - changeSet:
+      id: 5
+      author: IlyaUshakou
+      changes:
+        - createTable:
+            tableName: spells
+            columns:
+              - column:
+                  name: id
+                  type: int
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: spell_name
+                  type: varchar(50)
+                  constraints:
+                    nullable: false
+                    unique: true
+              - column:
+                  name: description
+                  type: text
+                  constraints:
+                    nullable: false
+              - column:
+                  name: casting_time
+                  type: varchar(100)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: distance
+                  type: varchar(100)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: target
+                  type: varchar(100)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: saving_throw
+                  type: varchar(100)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: book_id
+                  type: int
+                  constraints:
+                    nullable: false
+                    foreignKeyName: fk_books_spells
+                    references: books(id)
+              - column:
+                  name: school_id
+                  type: int
+                  constraints:
+                    nullable: false
+                    foreignKeyName: fk_schools_spells
+                    references: schools(id)
+      rollback:
+        - dropTable:
+            tableName: spells

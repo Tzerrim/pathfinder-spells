@@ -1,0 +1,26 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: IlyaUshakou
+      changes:
+        - createTable:
+            tableName: components
+            columns:
+              - column:
+                  name: id
+                  type: int
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: component_name
+                  type: varchar(50)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: addition
+                  type: text
+      rollback:
+        - dropTable:
+            tableName: components

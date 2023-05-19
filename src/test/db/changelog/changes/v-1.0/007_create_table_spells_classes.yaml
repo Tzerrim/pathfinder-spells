@@ -1,0 +1,22 @@
+databaseChangeLog:
+  - changeSet:
+      id: 7
+      author: IlyaUshakou
+      comment: table spells and table classes have MANY-TO-MANY relation
+      changes:
+        - createTable:
+            tableName: spells_classes
+            columns:
+              - column:
+                  name: spell_id
+                  type: int
+                  constraints:
+                    nullable: false
+              - column:
+                  name: class_id
+                  type: int
+                  constraints:
+                    nullable: false
+      rollback:
+        - dropTable:
+            tableName: spells_classes
